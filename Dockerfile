@@ -13,6 +13,9 @@ RUN \
     mv /code/target/*.war /jhipster-registry.war && \
     rm -Rf /code/ /root/.m2 /root/.cache /tmp/*
 
+FROM openjdk:8-jre-alpine
+COPY --from=0 /jhipster-registry.war /
+
 EXPOSE 8761
 
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
