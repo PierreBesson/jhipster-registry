@@ -94,7 +94,7 @@
                     for(var i=0; i<ca.length; i++) {
                         var c = ca[i];
                         while (c.charAt(0)==' ') c = c.substring(1);
-                        if (c.indexOf(name) != -1) return c.substring(name.length,c.length);
+                        if (c.indexOf(name) !== -1) return c.substring(name.length,c.length);
                     }
                     return "";
                 }
@@ -107,16 +107,16 @@
 
                 function oAuthIsDefined(security) {
                     return security.clientId
-                    && security.clientSecret
-                    && security.appName
-                    && security.realm;
+                        && security.clientSecret
+                        && security.appName
+                        && security.realm;
                 }
 
                 function initializeSpringfox() {
                     var security = {};
                     window.springfox.securityConfig(function(data) {
                         security = data;
-                        if (typeof initOAuth == "function" && oAuthIsDefined(security)) {
+                        if (typeof initOAuth === "function" && oAuthIsDefined(security)) {
                             initOAuth(security);
                         }
                     });
@@ -142,8 +142,8 @@
                     $urlDropdown.empty();
                     $.each(data, function(i, resource) {
                         var option = $('<option></option>')
-                        .attr("value", maybePrefix(resource.location, relativeLocation))
-                        .text(resource.name + " (" + resource.location + ")");
+                            .attr("value", maybePrefix(resource.location, relativeLocation))
+                            .text(resource.name + " (" + resource.location + ")");
                         $urlDropdown.append(option);
                     });
                     $urlDropdown.change();

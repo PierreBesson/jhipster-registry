@@ -12,6 +12,7 @@ import {
     JhiHealthCheckComponent,
     JhiConfigurationComponent,
     JhiConfigurationService,
+    JhiDocsComponent,
     JhiHealthService,
     JhiMetricsService,
     LogsService
@@ -27,6 +28,7 @@ import {
         JhiConfigurationComponent,
         JhiHealthCheckComponent,
         JhiHealthModalComponent,
+        JhiDocsComponent,
         JhiMetricsMonitoringComponent,
         JhiMetricsMonitoringModalComponent
     ],

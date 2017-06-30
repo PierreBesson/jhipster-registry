@@ -2,6 +2,7 @@
     <h2>Configuration</h2>
 
     <jhi-route-selector></jhi-route-selector>
+    <button *ngIf="activeRoute" class="btn btn-primary" type="submit" (click)=refreshServiceConfiguration()>Force Refresh<span *ngIf="activeRoute.serviceId === undefined"> {{activeRoute.appName}}</span><span *ngIf="activeRoute.serviceId"> {{activeRoute.serviceId}}</span></button>
 
     <p><span>Filter (by prefix)</span> <input type="text" [(ngModel)]="filter" class="form-control"></p>
     <label>Spring configuration</label>

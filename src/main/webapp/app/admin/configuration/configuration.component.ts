@@ -65,6 +65,10 @@ export class JhiConfigurationComponent implements OnInit, OnDestroy {
         }
     }
 
+    refreshServiceConfiguration() {
+        this.configurationService.refreshInstanceEnv(this.activeRoute);
+    }
+
     ngOnDestroy() {
         // prevent memory leak when component destroyed
         this.subscription.unsubscribe();

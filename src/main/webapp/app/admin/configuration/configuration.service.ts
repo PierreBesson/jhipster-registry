@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 import { Route } from '../../shared';
@@ -59,9 +59,23 @@ export class JhiConfigurationService {
     }
 
     getInstanceEnv(instance: Route): Observable<any> {
+        console.log(instance);
         if (instance && instance.prefix && instance.prefix.length > 0) {
             return this.getEnv(instance.prefix + '/');
         }
         return this.getEnv();
+    }
+
+    refreshInstance(prefix: String = '/'): Observable<any> {
+        console.log(prefix + 'management/refresh');
+        return this.http.post(prefix + 'management/refresh', {});
+    }
+
+    refreshInstanceEnv(instance: Route): Observable<any> {
+        if (instance && instance.prefix && instance.prefix.length > 0) {
+            return this.refreshInstance(instance.prefix + '/');
+        } else {
+            this.refreshInstance();
+        }
     }
 }
