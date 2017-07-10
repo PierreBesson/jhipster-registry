@@ -50,6 +50,7 @@ security:
         password: admin
         role: USER,ADMIN
 
+
 # ===================================================================
 # Eureka server configuration (eureka.server.*)
 #
@@ -86,3 +87,16 @@ eureka:
         enable-self-preservation: false
     dashboard:
         path: /registry
+
+jhipster:
+    swagger:
+        default-include-pattern: /api/.*
+        title: <%=baseName%> API
+        description: <%=baseName%> API documentation
+        version: ${project.version}
+        terms-of-service-url:
+        contact-name:
+        contact-url:
+        contact-email:
+        license:
+        license-url:
