@@ -50,7 +50,8 @@ public class ZuulUpdaterService {
 
             for (InstanceInfo instanceInfos : application.getInstances()) {
                 if(!instanceInfos.getStatus().equals(InstanceInfo.InstanceStatus.UP) &&
-                    !instanceInfos.getStatus().equals(InstanceInfo.InstanceStatus.STARTING)) continue;
+                    !instanceInfos.getStatus().equals(InstanceInfo.InstanceStatus.STARTING) ||
+                    instanceInfos.getMetadata().get("proxyOnRegistry").equals("false")) continue;
                 String instanceId = instanceInfos.getId();
                 String url = instanceInfos.getHomePageUrl();
                 log.debug("Checking instance {} - {} ", instanceId, url);
