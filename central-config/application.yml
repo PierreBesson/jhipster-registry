@@ -13,3 +13,6 @@ jhipster:
         authentication:
             jwt:
                 secret: my-secret-token-to-change-in-production
+
+logging:
+    file: ${spring.application.name}.log
