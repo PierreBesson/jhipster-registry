@@ -108,6 +108,16 @@ security:
         password: admin
         role: USER,ADMIN
 
+# CORS is only enabled with the "dev" profile for actuator endpoints, so BrowserSync can access the Management API
+endpoints:
+    cors:
+        allowed-origins: "*"
+        allowed-methods: GET, PUT, POST, DELETE, OPTIONS
+        allowed-headers: "*"
+        exposed-headers:
+        allow-credentials: true
+        max-age: 1800
+
 # ===================================================================
 # Application specific properties
 # Add your own application properties here, see the ApplicationProperties class
